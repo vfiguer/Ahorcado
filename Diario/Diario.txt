@@ -6,9 +6,10 @@ Mañana hare: Empezare el HTML y CSS
 
 28/11/2023:
 
-
+Comenze y practicamente acabe el lado de HTML y CSS
 
 Mañana hare:
+Comenzare con el JS y dare los ultimos toques al HTML y CSS por ahora
 
 29/11/2023:
 
