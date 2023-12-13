@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ahorcado</title>
     <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
+    
     <h1>El ahorcado</h1>
+    <div class = "paraula"> <p id="secreto"></p> </div>
     <div class="contenidor">
         <div class="fila">
             <div class="lletra"><a>A</a></div>
@@ -51,6 +53,14 @@
             <div class="espai"></div>
             <div class="espai"></div>
         </div>
+    </div>
+    <div class="contenidor">
+        <p class="text">Te quedan <span id="contador">0</span> vidas</p>
+    </div>
+    <div class="contenidor">
+        <button id ="start"> Start</button>
+        <button id = "reset"> Reset</button>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
