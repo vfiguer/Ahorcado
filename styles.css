@@ -82,6 +82,12 @@ button:hover{
     margin-right: 18px;
 }
 
+.paraula{
+    font-size: xx-large;
+    font-weight: bold;
+    letter-spacing: 10px;
+}
+
 .lletra.correcto{
     background-color: lightgreen;
     pointer-events: none;
