@@ -7,7 +7,7 @@ let start = document.getElementById("start")
 let reset = document.getElementById("reset")
 let secreto =document.getElementById("secreto")
 let textoInferior =document.getElementById("textoInferior")
-let palabras = ["perro", "conejo", "pneurotorax", "diafragma", "oftalmologia"]
+let palabras = ["Amigos","Peregrino","Bebida","Separar","Voltear","Celos","perro", "conejo", "pneurotorax", "diafragma", "oftalmologia"]
 
 contenidor.classList.add("pointerNone");
 reset.disabled = true;
