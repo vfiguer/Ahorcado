@@ -1,3 +1,4 @@
+//declaraciones 
 const contenidor = document.querySelector('.contenidor');
 const lletra = document.querySelectorAll('.fila .letra:not(.ocupat)');
 const contador = document.getElementById('contador');
@@ -35,8 +36,11 @@ let palabra = "";
 
 let letrasAcertadas = 0
 let puntuacion = 0;
+
+//reiniciamos todo al principio para que quede bien
 reiniciar();
 
+//los 3 botones para poder elegir las categorias
 tabla_periodica.addEventListener('click', (e) => {
     categoria = 1
     start();
@@ -52,7 +56,8 @@ animales.addEventListener('click', (e) => {
     start();
 })
 
-
+//funcion de inicio del juego, esconde los botones de categoria y muestra la puntuacion, las vidass, la palabra
+//y el boton de reset
 function start() {
     reset.disabled = false;
     reset.hidden = false;
@@ -68,23 +73,28 @@ function start() {
     startgame();
 }
 
+//boton de reset
 reset.addEventListener('click', (e) => {
     reiniciar();
 })
 
+//boton de reset del popup
 resetpop.addEventListener('click', (e) => {
     popup.style.display = "none";
     reiniciar();
 })
 
+//funcion que actualiza el texto de las vidas
 function actualitzaVidas() {
     contador.innerText = vidas;
 }
 
+//funcion que actualiza la puntuacion en pantalla
 function actualitzaPuntuacion(){
     puntos.innerText = puntuacion;
 }
 
+//el event listener que permite que si le das a las letras se marquen y se pongan bien o mal
 contenidor.addEventListener('click', (e) => {
     if (vidas === 0) {
         perder = true;
@@ -104,6 +114,7 @@ contenidor.addEventListener('click', (e) => {
     }
 });
 
+//funcion que se activa cuando adivinas la palabra o te quedas sin vidas para finalizar el juego
 function finalizar() {
     contenidor.hidden = true;
     textoInferior.hidden = true;
@@ -119,6 +130,7 @@ function finalizar() {
     resultadosPuntos.innerText = puntuacion;
 }
 
+//funcion que inicia el juego, busca la palabra la encripta y la pone en pantalla
 function startgame() {
     if(categoria===1){
         palabra = tabla[Math.floor(Math.random() * tabla.length)];  
@@ -133,6 +145,7 @@ function startgame() {
     secreto.innerText = palabra_encriptada;
 }
 
+//funcion para reiniciar todo y devolverlo al estado original
 function reiniciar() {
     contenidor.classList.add("pointerNone");
     reset.disabled = true;
@@ -153,7 +166,7 @@ function reiniciar() {
     actualitzaVidas();
     textoInferior.hidden = true
     textoInferior2.hidden = true
-
+    //el codigo que cambia el color de las letras
     let letras = document.querySelectorAll(".lletra")
     letras.forEach((lletra) => {
         lletra.classList.remove('correcto');
@@ -165,6 +178,8 @@ function reiniciar() {
 
 }
 
+//funcion funcion que actualiza la palabra secreta que cuando pongas una letra bien
+//se escribira por pantalla
 function actualizarPalabraEncriptada(letra) {
     const indices = [];
     for (let i = 0; i < palabra.length; i++) {
@@ -173,16 +188,19 @@ function actualizarPalabraEncriptada(letra) {
             letrasAcertadas++;
         }
     }
-    
+
+    //llamadas a funciones para actualizar la puntuacion
     calcularPuntuacion();
     actualitzaPuntuacion();
 
+    //el codigo que cambia la letra oculta por la letra correcta
     let palabra_encriptada_array = secreto.innerText.split('');
     indices.forEach((indice) => {
         palabra_encriptada_array[indice] = letra;
     });
     secreto.innerText = palabra_encriptada_array.join('');
-    if (!secreto.innerText.includes('-') && vidas>0) {
+    //if que acaba el juego si la palabra esta acabada
+    if (!secreto.innerText.includes('-') && vidas>=0) {
         finalizar()
     }
 }
